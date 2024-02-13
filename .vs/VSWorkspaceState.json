@@ -1,10 +1,17 @@
 {
   "ExpandedNodes": [
     "",
-    "\\nodeAPI",
+    "\\node-api",
+    "\\node-api\\DataModels",
     "\\React",
-    "\\React\\dist",
-    "\\React\\src"
+    "\\React\\src",
+    "\\React\\src\\Application",
+    "\\React\\src\\Application\\AppComponent",
+    "\\React\\src\\Application\\AppComponent\\Order",
+    "\\React\\src\\State",
+    "\\React\\src\\State\\Order",
+    "\\React\\src\\State\\Product"
   ],
+  "SelectedNode": "\\React",
   "PreviewInSolutionExplorer": false
 }

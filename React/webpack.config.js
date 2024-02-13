@@ -8,7 +8,7 @@ let path = require("path"), //path module of node framework
         },
         // webpack 5 comes with devServer which loads in development mode
         devServer: {
-            port: 9090,
+            port: 8080,
             historyApiFallback: true //localhost:9090/user
         },
         // Rules of how webpack will take our files, complie & bundle them for the browser 
