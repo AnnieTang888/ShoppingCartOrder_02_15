@@ -8,7 +8,8 @@ router.post("/api/saveOrder",(req, res)=>{
     let newOrder = new OrderDataModel({
         userid: req.body.userid,
         cart: req.body.cart,
-        dateTime: new Date(),      
+        dateTime: new Date(),
+        status: 'placed',      
     });
 
     newOrder.save().then((data)=>{                                  
@@ -24,6 +25,37 @@ router.post("/api/getUserOrder",(req, res)=>{
         .then((orders) => { res.json(orders) })
         .catch((err)=>{res.send("Error Occurred"+ err);})
 });
+
+// Cancel an existing order
+router.post("/api/cancelThisOrder", (req, res) => {
+    
+    OrderDataModel.findByIdAndUpdate(
+        req.body.orderId,
+        { status: 'cancelled' },
+        { new: true }
+    )
+    .then(updatedOrder => {
+        if (!updatedOrder) {
+            return res.send("Order not found.");
+        }
+        res.json(updatedOrder);
+    })
+    .catch(err => {
+        res.status.send("Error Occurred: " + err);
+    });
+});
+
+// Fetch all cancelled orders for a specific user
+router.post("/api/fetchCancelledOrders", (req, res) => {
+    OrderDataModel.find({ userid: req.body.userid, status: 'cancelled' })
+        .then(cancelledOrders => { 
+            res.json(cancelledOrders); 
+        })
+        .catch(err => {
+            res.status.send("Error Occurred: " + err);
+        });
+});
+
 
 module.exports = router;
 

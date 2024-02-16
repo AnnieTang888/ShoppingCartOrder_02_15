@@ -34,8 +34,10 @@ let HeaderComponent = (props) => {
                         <NavLink to="/cart" className="button">Cart</NavLink>
                         <NavLink to="/coupon" className="button">Generate Coupon</NavLink>
                         <NavLink to="/recentorder" className="button">Recent Order</NavLink>
+                        <NavLink to="/cancelorder" className="button">Cancel Order</NavLink>
                         <NavLink to="/student" className="button">Student</NavLink>
                         <NavLink to="/annie" className="button">Annie</NavLink>
+                        
                     </>
                 ) : (
                     // Show the Login link when the user is not logged in
